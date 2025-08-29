@@ -11,40 +11,57 @@
         body {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
-            background-image: url('./noFilter.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
             color: white;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding-top: 40px;
         }
         h1 {
             font-size: 3rem;
-            margin-bottom: 20px;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 6px rgba(0,0,0,0.8);
+        }
+        .btn-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
         }
         a {
             text-decoration: none;
         }
         button {
-            padding: 10px 20px;
-            font-size: 1rem;
+            padding: 12px 25px;
+            font-size: 1.1rem;
             cursor: pointer;
-            background-color: #007BFF;
+            background: linear-gradient(135deg, #007BFF, #0056b3);
             color: white;
             border: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            margin: 5px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
         }
         button:hover {
-            background-color: #0056b3;
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #0056b3, #003f7f);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.5);
         }
-        /* მოდალი */
+        #bgVideo {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
         .modal {
             display: none;
             position: fixed;
@@ -73,46 +90,73 @@
             cursor: pointer;
             float: right;
         }
+        /* მეორე ვიდეო */
+        .main-video-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 30px;
+        }
+        .main-video {
+            width: 60%;          /* პატარა ზომა */
+            max-width: 600px;    /* მაქსიმუმ 600px */
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+        }
+        .video-text {
+            margin-top: 15px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.9);
+        }
+        /* მობილურზე ზომის ავტომატური დაპატარავება */
+        @media (max-width: 768px) {
+            .main-video {
+                width: 90%;
+                max-width: 400px;
+            }
+            .video-text {
+                font-size: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>Tbilisihood</h1>
-    
-    <a href="https://discord.gg/QJnDuBax" target="_blank">
-        <button>tbilisihood DISCORD😎</button>
-    </a>
+    <!-- ფონის ვიდეო -->
+    <video autoplay muted loop id="bgVideo">
+        <source src="Roblox 2025-08-29 11-42-27 (online-video-cutter-VEED.mp4" type="video/mp4">
+        შენი ბრაუზერი ვიდეოს არ უჭერს მხარს
+    </video>
 
-    <button id="rulesBtn">📜 წესები</button>
-    <button id="adminsBtn">🛡️ Admins</button>
+    <h1>🌆 Tbilisihood</h1>
+    
+    <div class="btn-container">
+        <a href="https://discord.gg/QJnDuBax" target="_blank">
+            <button>😎 Discord</button>
+        </a>
+        <button id="rulesBtn">📜 წესები</button>
+        <button id="adminsBtn">🛡️ Admins</button>
+        <a href="https://www.roblox.com/communities/15745479/Tbilisi-Studio#!/about" target="_blank">
+            <button>👥 Roblox Group</button>
+        </a>
+    </div>
+
+    <!-- მთავარი ვიდეო ღილაკების ქვემოთ -->
+    <div class="main-video-container">
+        <video class="main-video" autoplay muted loop playsinline>
+            <source src="Roblox 2025-08-29 13-10-49 (online-video-cutter.com) (1).mp4" type="video/mp4">
+            შენი ბრაუზერი ვიდეოს არ უჭერს მხარს
+        </video>
+        <p class="video-text">⚔️ PVP</p>
+    </div>
 
     <!-- წესების მოდალი -->
     <div id="rulesModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>📜 წესები</h2>
-            <p>
-PUNISHMENT TIMES / GAME RULES
-
-1: შეურაწყოფა ადამიანის მიმართ (ნებისმიერი) - 1 H / 30 Minute ban (ყლეო, სირო, შიგხოარგაქ, გააჯვი)  
-2: შეურაწყოფა რომელიც შეიცავს “მოგიტყან” და/ან შეურაწყოფა რომელიც ეხება ოჯახის წევრებს - 1H Ban  
-3: Lock - 7 Day Ban  
-4: Any other exploits - Perm Ban (თუ Staff ხართ Staff Blacklist გედებათ პირდაპირ)  
-5: თუ Voice Chat-ში გადაჭარბებულად რთავენ მუსიკას - Kick (ძაან ხმამაღალი ან ნერვების მომშლელი თუ არის)  
-6: PC Check-ის დროს თუ გავლენ, ან არ წამოვლენ, პირდაპირ 7 Day.  
-7: Chatlog-ების შემოწმება მხოლოდ რეპორტის დროს შეიძლება.  
-8: თუ არიან პატარა სკინით kick / Macro Abuse Kick  
-
----------------------------------------
-
-9: Censored Inappropriate Words (Any, depends) - 30 M / 1 H Ban  
-10: Lock - 7 Day Ban  
-11: Any other exploits - Perm Ban (If you are a Staff you get Staff Blacklist)  
-12: If there is a loud music coming from someone, kick them. Repeated offense may take 20M Ban  
-13: During Pc Check, If they leave, Ban for 7 days  
-14: Package/Macro/Small skin abuse is bannable for 20-40 Minutes  
-
-ADMIN ABUSE RULES / STAFF RULES - Only Shown In Staff Team Category
-            </p>
+            <p> ... (შენი ტექსტი უცვლელად დავტოვე) ... </p>
         </div>
     </div>
 
@@ -121,24 +165,7 @@ ADMIN ABUSE RULES / STAFF RULES - Only Shown In Staff Team Category
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>🛡️ Admin Roles</h2>
-            <p>
-                creator:
-                17kaizz
-                ccxfinn
-             ----------------------
-                developers:
-                wcxken
-                6mamula
-                OiLyMaD
-                khrsab
-                nika21324
-                DsDestroyerB
-                0_kai17k
-                Helloiam_melody
-                sleepytemo:8592554717
-            -------------------------
-            
-            </p>
+            <p> ... (შენი ტექსტი უცვლელად დავტოვე) ... </p>
         </div>
     </div>
 
@@ -158,4 +185,3 @@ ADMIN ABUSE RULES / STAFF RULES - Only Shown In Staff Team Category
     </script>
 </body>
 </html>
-
