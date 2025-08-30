@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ეს არის მთავარი ფიქსი scale-სთვის -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
     <title>🌆 Tbilisi Hood</title>
     <link rel="icon" type="image/png" href="favicon.png">
@@ -98,8 +99,8 @@
             margin-top: 30px;
         }
         .main-video {
-            width: 60%;          /* პატარა ზომა */
-            max-width: 600px;    /* მაქსიმუმ 600px */
+            width: 60%;          
+            max-width: 600px;    
             border-radius: 15px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.7);
         }
@@ -140,6 +141,11 @@
         <a href="https://www.roblox.com/communities/15745479/Tbilisi-Studio#!/about" target="_blank">
             <button>👥 Roblox Group</button>
         </a>
+        <a href="https://www.roblox.com/games/72388201832382/Tbilisi-Hood" target="_blank">
+            <button>🎮 Game</button>
+        </a>
+        <!-- ახალი ღილაკი Clan -->
+        <button id="clanBtn">⚔️ Clan</button>
     </div>
 
     <!-- მთავარი ვიდეო ღილაკების ქვემოთ -->
@@ -156,7 +162,7 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>📜 წესები</h2>
-            <p> ... (შენი ტექსტი უცვლელად დავტოვე) ... </p>
+            <p> ... 👁- is the Founder/Holder of the game. 👑- Owner/CoOwner of the game. 🛠- Developer of the game. ⚖️ - Community Manager. ( they control everyone but not above Dev ) ⚙️ - Administrator of the game. ( Helping with Events ) 🔮- Manager ( Manages staff members ) 🛡️ - Regular Staff Members ☑️ - Influencer for more info check ⁠ ✅ - if you are acknowledged by Devs or By Owners ( keep in mind that you will not get this emoji if u are friends with them etc. ) ⚔️ - Crew Leaders. ( Roblox KNOWN crew for TH ) TH Rules PUNISHMENT TIMES / GAME RULES 1: შეურაწყოფა ადამიანის მიმართ (ნებისმიერი) - 1 H / 30 Minute ban (ყლეო, სირო, შიგხოარგაქ, გააჯვი 2: შეურაწყოფა რომელიც შეიცავს “მოგიტყან” და/ან შეურაწყოფა რომელიც ეხება ოჯახის წევრებს - 1H Ban 3: Lock - 7 Day Ban 4: Any other exploits - Perm Ban (თუ Staff ხართ Staff Blacklist გედებათ პირდაპირ) 5: თუ Voice Chat-ში გადაჭარბებულად რთავენ მუსიკას - Kick (ძაან ხმამაღალი ან ნერვების მომშლელი თუ არის) 6: PC Check-ის დროს თუ გავლენ, ან არ წამოვლენ, პირდაპირ 7 Day. 7: Chatlog-ების შემოწმება მხოლოდ რეპორტის დროს შეიძლება. 8: თუ არიან პატარა სკინით kick / Macro Abuse Kick --------------------------------------- 9: Censored Inappropriate Words (Any, depends) - 30 M / 1 H Ban 10: Lock - 7 Day Ban 11: Any other exploits - Perm Ban (If you are a Staff you get Staff Blacklist) 12: If there is a loud music coming from someone, kick them. Repeated offense may take 20M Ban 13: During Pc Check, If they leave, Ban for 7 days 14: Package/Macro/Small skin abuse is bannable for 20-40 Minutes ADMIN ABUSE RULES / STAFF RULES - Only Shown In Staff Team CategoryEvery Rule Not Listed Above May Apply Including Direct Orders From The Owner/Game Holder, @here ... </p>
         </div>
     </div>
 
@@ -165,8 +171,25 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>🛡️ Admin Roles</h2>
-            <p> ... (შენი ტექსტი უცვლელად დავტოვე) ... </p>
-        </div>
+            <p> ... creatorlevel(999999999) 
+                      17kaizz;ccxfinn;dachovsky;Milliondollardiegck;Helloiam_melody ... </p>
+        </div>      
+    </div>
+
+    <!-- Clan მოდალი -->
+    <div id="clanModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>⚔️ Clan Names</h2>
+            <p>
+                🔥 DBL <br>
+                🐉 TbZyn <br>
+                🕶  bikentias saqababe<br>
+                💀 777 <br>
+                  <br>
+                
+            </p>
+        </div>      
     </div>
 
     <script>
@@ -182,6 +205,7 @@
 
         setupModal("rulesBtn", "rulesModal");
         setupModal("adminsBtn", "adminsModal");
+        setupModal("clanBtn", "clanModal");
     </script>
 </body>
 </html>
